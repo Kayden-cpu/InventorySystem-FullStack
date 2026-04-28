@@ -1,4 +1,3 @@
-
 import { DataSource } from 'typeorm';
 
 export const databaseProviders = [
@@ -8,13 +7,11 @@ export const databaseProviders = [
       const dataSource = new DataSource({
         type: 'mysql',
         host: 'localhost',
-        port: 3306,
+        port: 10955,
         username: 'tiger',
         password: 'AGoodPassword',
         database: 'inventory',
-        entities: [
-            __dirname + '/../**/*.entity{.ts,.js}',
-        ],
+        entities: [__dirname + '/**/*.entity{.ts,.js}'],
         synchronize: true,
       });
 

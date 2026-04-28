@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class InventoryItem {
@@ -30,9 +30,9 @@ export class InventoryItem {
     @Column({type: "boolean"})
     isActive!: boolean
 
-    @Column({type: "datetime", nullable: false, default: new Date()})
+    @CreateDateColumn()
     createdAt!: Date
 
-    @Column({type: "datetime", nullable: false, default: new Date()})
+    @CreateDateColumn()
     updatedAt!: Date
 }
