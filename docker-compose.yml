@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_db-inventory
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: BeATiger
+      MYSQL_DATABASE: inventory
+      MYSQL_USER: tiger
+      MYSQL_PASSWORD: AGoodPassword
+    ports:
+      - "10955:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin-inventory
+    restart: always
+    ports:
+      - "10956:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: BeATiger
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data:
