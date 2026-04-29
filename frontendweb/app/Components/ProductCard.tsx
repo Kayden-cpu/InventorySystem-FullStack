@@ -1,6 +1,10 @@
+"use client" ;
 import Image from 'next/image';
+import { InventoryItem } from '../Objects/InvetoryItem';
+import { usePurchaseContext } from '../context/PurchaseContext';
 
-export default function ProductCard() {
+export default function ProductCard({inventoryItem}: {inventoryItem: InventoryItem}) {
+    const {addItemToCart} = usePurchaseContext()
     return (
         <article className="group flex flex-col max-w-70 overflow-hidden rounded-xl border border-stone-200 bg-white shadow-sm transition-all duration-300 hover:shadow-lg">
             
@@ -24,12 +28,12 @@ export default function ProductCard() {
                         </p>
 
                         <h3 className="text-2xl font-bold text-stone-900">
-                            Name
+                            {inventoryItem.name}
                         </h3>
                     </div>
 
                     <p className="h-fit rounded-md bg-stone-100 px-2 py-1 text-sm font-bold text-stone-700">
-                        $Free.99
+                        {inventoryItem.price}
                     </p>
                 </div>
 
@@ -67,3 +71,5 @@ export default function ProductCard() {
         </article>
     );
 }
+
+
