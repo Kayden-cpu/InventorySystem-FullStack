@@ -11,7 +11,7 @@ export default function Home() {
     <main className="p-6 flex gap-5 flex-wrap items-center justify-around">
       
         {allProductsLoaded.map((item) => (
-          <section className="mb-6 rounded-xl bg-stone-100 p-4 ">
+          <section className="mb-6 rounded-xl bg-stone-100 p-4 " key={item.id}>
           <ProductCard inventoryItem={item} key={item.id} />
           </section>
         ))
