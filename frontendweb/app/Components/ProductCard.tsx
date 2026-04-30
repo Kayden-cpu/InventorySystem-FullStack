@@ -58,7 +58,7 @@ export default function ProductCard({inventoryItem}: {inventoryItem: InventoryIt
                         Buy Now
                     </button>
 
-                    <button className="rounded-lg border border-stone-300 bg-white py-3 font-semibold text-stone-900 transition hover:bg-stone-100">
+                    <button onClick={() => addItemToCart(inventoryItem)} className="rounded-lg border border-stone-300 bg-white py-3 font-semibold text-stone-900 transition hover:bg-stone-100">
                         Add to Cart
                     </button>
 
